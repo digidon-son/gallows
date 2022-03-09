@@ -41,12 +41,12 @@ class ConsoleInterface
 
   # Возвращает ошибочный ввод через запятую
   def errors_to_show
-    @game.errors.join ', '
+    @game.errors.join(', ')
   end
 
   # Запрашивает букву
   def get_input
     print 'Введите букву: '
-    $stdin.gets[0].upcase.chomp
+    $stdin.gets[0].upcase
   end
 end
