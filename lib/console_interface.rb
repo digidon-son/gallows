@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+# Подключаем гем colorize
+require 'colorize'
+
 # Данный класс написан для возможности игры в терминале
 # Содержит методы принимающие и возвращающие значения в терминал
 class ConsoleInterface
@@ -23,25 +28,25 @@ class ConsoleInterface
     GAME_STATUS
 
     if @game.won?
-      puts 'Поздравляем, вы выиграли!'
+      puts 'Поздравляем, вы выиграли!'.colorize(:yellow)
     elsif @game.lost?
-      puts "Вы проиграли, загаданное слово #{@game.word}"
+      puts "Вы проиграли, загаданное слово #{@game.word}".colorize(:light_red)
     end
   end
 
   # Метод возвращающий конкретный файл с рисунком исходя из количества ошибок
   def figure
-    FIGURES[@game.errors_made]
+    FIGURES[@game.errors_made].colorize(:blue)
   end
 
   # Выводит отгаданные буквы, закрывая неотгаданные
   def word_to_show
-    @game.letters_to_guess.map { |letter| letter || '__' }.join(' ')
+    @game.letters_to_guess.map { |letter| letter || '__' }.join(' ').colorize(:magenta)
   end
 
   # Возвращает ошибочный ввод через запятую
   def errors_to_show
-    @game.errors.join(', ')
+    @game.errors.join(', ').colorize(:red)
   end
 
   # Запрашивает букву
