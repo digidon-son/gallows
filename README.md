@@ -10,7 +10,7 @@
 2. Находясь в директории программы наберите в терминале:
 ```
 $ bundle install
-$ ruby main.rb
+$ bundle exec ruby main.rb
 ```
 3. Играйте.
 
